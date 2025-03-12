@@ -13,7 +13,7 @@ variable "server_type" {
 variable "location" {
   description = "Hetzner Cloud datacenter location"
   type        = string
-  default     = "nbg1" # Nuremberg, Germany
+  default     = "ash" # Ashland
 }
 
 variable "image" {

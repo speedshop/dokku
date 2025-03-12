@@ -43,7 +43,7 @@ resource "null_resource" "dokku_provisioner" {
       "dokku plugin:install https://github.com/dokku/dokku-redis.git redis",
 
       # Set up SSH key for deployments (if provided)
-      "${var.dokku_deploy_key != "" ? "echo '${var.dokku_deploy_key}' >> /home/dokku/.ssh/authorized_keys" : "echo 'No deploy key provided'"}",
+      "${var.dokku_deploy_key != "" ? "dokku ssh-keys:add deploy ${var.dokku_deploy_key}" : "echo 'No deploy key path provided'"}",
 
       # Final system updates
       "apt-get upgrade -y",
