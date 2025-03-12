@@ -45,7 +45,7 @@ variable "dokku_hostname" {
 }
 
 variable "dokku_deploy_key" {
-  description = "SSH public key path for deploying to Dokku (optional)"
+  description = "SSH public key for deploying to Dokku (optional)"
   type        = string
   default     = ""
 }

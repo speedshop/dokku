@@ -4,9 +4,9 @@ server_type    = "cx21"
 location       = "nbg1"
 image          = "ubuntu-22.04"
 ssh_private_key_path = "~/.ssh/id_rsa"
-dokku_version  = "0.30.6"
+dokku_version  = "0.35.16"
 dokku_hostname = "dokku.example.com"
-dokku_deploy_key = "~/.ssh/dokku_deploy_key.pub"
+dokku_deploy_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC..."
 create_floating_ip = false
 ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC..."
 

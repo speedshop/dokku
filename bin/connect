@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Exit on error
+set -e
+
+# Check if DOKKU_IP is set
+if [ -z "$DOKKU_IP" ]; then
+    echo "Error: DOKKU_IP environment variable is not set"
+    exit 1
+fi
+
+# Connect using SSH with the Hetzner key
+ssh -i ~/.ssh/hetzner root@$DOKKU_IP

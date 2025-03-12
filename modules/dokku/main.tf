@@ -27,7 +27,7 @@ resource "null_resource" "dokku_provisioner" {
       "export DEBIAN_FRONTEND=noninteractive",
       "apt-get update",
       "apt-get install -y apt-transport-https ca-certificates curl software-properties-common",
-
+      "rm -rf bootstrap.sh",
       # Install Dokku
       "wget https://raw.githubusercontent.com/dokku/dokku/v${var.dokku_version}/bootstrap.sh",
       "DOKKU_TAG=v${var.dokku_version} bash bootstrap.sh",
@@ -39,11 +39,9 @@ resource "null_resource" "dokku_provisioner" {
       # Install Dokku plugins
       "dokku plugin:install-dependencies --core",
       "dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git",
-      "dokku plugin:install https://github.com/dokku/dokku-postgres.git postgres",
-      "dokku plugin:install https://github.com/dokku/dokku-redis.git redis",
 
       # Set up SSH key for deployments (if provided)
-      "${var.dokku_deploy_key != "" ? "dokku ssh-keys:add deploy ${var.dokku_deploy_key}" : "echo 'No deploy key path provided'"}",
+      "${var.dokku_deploy_key != "" ? "echo \"${var.dokku_deploy_key}\" | dokku ssh-keys:add deploy" : "echo 'No deploy key path provided'"}",
 
       # Final system updates
       "apt-get upgrade -y",
