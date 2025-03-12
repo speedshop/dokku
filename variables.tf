@@ -28,12 +28,6 @@ variable "image" {
   default     = "ubuntu-22.04"
 }
 
-variable "ssh_keys" {
-  description = "List of SSH key IDs or names to be added to the server"
-  type        = list(string)
-  default     = []
-}
-
 variable "ssh_private_key_path" {
   description = "Path to the SSH private key file for provisioning"
   type        = string
@@ -61,6 +55,11 @@ variable "create_floating_ip" {
   description = "Whether to create a floating IP for the Dokku server"
   type        = bool
   default     = false
+}
+
+variable "ssh_public_key" {
+  description = "SSH public key to add to Hetzner Cloud"
+  type        = string
 }
 
 variable "firewall_rules" {

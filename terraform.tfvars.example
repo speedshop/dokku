@@ -3,12 +3,12 @@ server_name    = "dokku-server"
 server_type    = "cx21"
 location       = "nbg1"
 image          = "ubuntu-22.04"
-ssh_keys       = ["your_ssh_key_name_or_id"]
 ssh_private_key_path = "~/.ssh/id_rsa"
 dokku_version  = "0.30.6"
 dokku_hostname = "dokku.example.com"
 dokku_deploy_key = "" # Optional: Your SSH public key for deployments
 create_floating_ip = false
+ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC..."
 
 # Optional: Add custom firewall rules
 # firewall_rules = [

@@ -18,7 +18,6 @@ module "hetzner" {
   server_type     = "cx21"
   location        = "nbg1"
   image           = "ubuntu-22.04"
-  ssh_keys        = ["your-ssh-key-id"]
   ssh_private_key_path = "~/.ssh/id_rsa"
   create_floating_ip = false
 
@@ -64,7 +63,6 @@ output "server_ip" {
 | server_type | Hetzner Cloud server type | `string` | `"cx21"` | no |
 | location | Hetzner Cloud datacenter location | `string` | `"nbg1"` | no |
 | image | Base OS image to use | `string` | `"ubuntu-22.04"` | no |
-| ssh_keys | List of SSH key IDs or names to be added to the server | `list(string)` | n/a | yes |
 | ssh_private_key_path | Path to the SSH private key file for provisioning | `string` | `"~/.ssh/id_rsa"` | no |
 | create_floating_ip | Whether to create a floating IP for the server | `bool` | `false` | no |
 | firewall_rules | Firewall rules for the server | `list(object)` | Default SSH, HTTP, HTTPS rules | no |

@@ -5,10 +5,10 @@ module "hetzner" {
   server_type          = var.server_type
   location             = var.location
   image                = var.image
-  ssh_keys             = var.ssh_keys
   ssh_private_key_path = var.ssh_private_key_path
   firewall_rules       = var.firewall_rules
   create_floating_ip   = var.create_floating_ip
+  ssh_public_key       = var.ssh_public_key
 }
 
 # Provision Dokku on the server
