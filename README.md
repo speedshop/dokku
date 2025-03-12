@@ -1,14 +1,12 @@
 # Dokku on Hetzner Cloud with Terraform
 
-This Terraform project automates the deployment of a Dokku server on Hetzner Cloud. It sets up a server with Dokku installed and configured, along with common plugins like Postgres, Redis, and Let's Encrypt.
+This Terraform project automates the deployment of a Dokku server on Hetzner Cloud.
 
 ## Prerequisites
 
 - [Terraform](https://www.terraform.io/downloads.html) (v1.0.0 or newer)
   - Alternatively, use [mise](https://mise.jdx.dev/) or [asdf](https://asdf-vm.com/) for version management
 - A Hetzner Cloud account and API token
-- SSH key added to your Hetzner Cloud account
-- Domain name for your Dokku server (optional but recommended)
 - Hetzner Storage Box with S3 compatibility (for remote state management)
 
 ## Configuration
