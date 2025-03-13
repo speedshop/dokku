@@ -57,7 +57,6 @@ variable "firewall_rules" {
     protocol        = string
     port            = string
     source_ips      = list(string)
-    destination_ips = optional(list(string), [])
   }))
   default = [
     {

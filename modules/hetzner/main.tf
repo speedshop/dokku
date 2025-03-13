@@ -36,6 +36,7 @@ resource "hcloud_firewall" "server" {
       protocol   = rule.value.protocol
       port       = rule.value.port
       source_ips = rule.value.source_ips
+      destination_ips = ["${hcloud_server.server.ipv4_address}/32"]
     }
   }
 }

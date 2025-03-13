@@ -17,6 +17,5 @@ ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC..."
 #     protocol        = "tcp"
 #     port            = "8080"
 #     source_ips      = ["0.0.0.0/0", "::/0"]
-#     destination_ips = []
 #   }
 # ]
