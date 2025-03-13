@@ -38,7 +38,7 @@ variable "firewall_rules" {
   type = list(object({
     direction       = string
     protocol        = string
-    port            = string
+    port            = string # can be a single port "22" or a range "60000-61000"
     source_ips      = list(string)
   }))
   default = [
@@ -46,6 +46,12 @@ variable "firewall_rules" {
       direction       = "in"
       protocol        = "tcp"
       port            = "22"
+      source_ips      = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      direction       = "in"
+      protocol        = "udp"
+      port            = "60000-61000"
       source_ips      = ["0.0.0.0/0", "::/0"]
     },
     {

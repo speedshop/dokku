@@ -26,7 +26,7 @@ resource "null_resource" "dokku_provisioner" {
     inline = [
       "export DEBIAN_FRONTEND=noninteractive",
       "apt-get update",
-      "apt-get install -y apt-transport-https ca-certificates curl software-properties-common",
+      "apt-get install -y apt-transport-https ca-certificates curl software-properties-common mosh",
       "rm -rf bootstrap.sh",
       # Install Dokku
       "wget https://raw.githubusercontent.com/dokku/dokku/v${var.dokku_version}/bootstrap.sh",

@@ -65,29 +65,29 @@ variable "ssh_public_key" {
 variable "firewall_rules" {
   description = "Firewall rules for the Dokku server"
   type = list(object({
-    direction       = string
-    protocol        = string
-    port            = string
-    source_ips      = list(string)
+    direction  = string
+    protocol   = string
+    port       = string
+    source_ips = list(string)
   }))
   default = [
     {
-      direction       = "in"
-      protocol        = "tcp"
-      port            = "22"
-      source_ips      = ["0.0.0.0/0", "::/0"]
+      direction  = "in"
+      protocol   = "tcp"
+      port       = "22"
+      source_ips = ["0.0.0.0/0", "::/0"]
     },
     {
-      direction       = "in"
-      protocol        = "tcp"
-      port            = "80"
-      source_ips      = ["0.0.0.0/0", "::/0"]
+      direction  = "in"
+      protocol   = "tcp"
+      port       = "80"
+      source_ips = ["0.0.0.0/0", "::/0"]
     },
     {
-      direction       = "in"
-      protocol        = "tcp"
-      port            = "443"
-      source_ips      = ["0.0.0.0/0", "::/0"]
+      direction  = "in"
+      protocol   = "tcp"
+      port       = "443"
+      source_ips = ["0.0.0.0/0", "::/0"]
     }
   ]
 }
