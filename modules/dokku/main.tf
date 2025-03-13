@@ -27,6 +27,7 @@ resource "null_resource" "dokku_provisioner" {
       "export DEBIAN_FRONTEND=noninteractive",
       "apt-get update",
       "apt-get install -y apt-transport-https ca-certificates curl software-properties-common mosh",
+      "apt-get install -y locales && locale-gen en_US.UTF-8",
       "rm -rf bootstrap.sh",
       # Install Dokku
       "wget https://raw.githubusercontent.com/dokku/dokku/v${var.dokku_version}/bootstrap.sh",

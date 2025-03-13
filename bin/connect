@@ -10,4 +10,4 @@ if [ -z "$DOKKU_IP" ]; then
 fi
 
 # Connect using SSH with the Hetzner key
-ssh -i ~/.ssh/hetzner root@$DOKKU_IP
+mosh --ssh "ssh -i ~/.ssh/hetzner" root@$DOKKU_IP
