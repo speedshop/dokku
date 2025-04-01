@@ -43,29 +43,71 @@ variable "firewall_rules" {
   }))
   default = [
     {
-      direction       = "in"
-      protocol        = "tcp"
-      port            = "22"
-      source_ips      = ["0.0.0.0/0", "::/0"]
+      direction  = "in"
+      protocol   = "tcp"
+      port       = "22"
+      source_ips = ["0.0.0.0/0", "::/0"]
     },
     {
-      direction       = "in"
-      protocol        = "udp"
-      port            = "60000-61000"
-      source_ips      = ["0.0.0.0/0", "::/0"]
+      direction  = "in"
+      protocol   = "tcp"
+      port       = "80"
+      source_ips = ["0.0.0.0/0", "::/0"]
     },
     {
-      direction       = "in"
-      protocol        = "tcp"
-      port            = "80"
-      source_ips      = ["0.0.0.0/0", "::/0"]
+      direction  = "in"
+      protocol   = "tcp"
+      port       = "443"
+      source_ips = ["0.0.0.0/0", "::/0"]
     },
     {
-      direction       = "in"
-      protocol        = "tcp"
-      port            = "443"
-      source_ips      = ["0.0.0.0/0", "::/0"]
-    }
+      direction  = "out"
+      protocol   = "tcp"
+      port       = "80"
+      source_ips = ["0.0.0.0/0", "::/0"]
+      destination_ips = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      direction  = "out"
+      protocol   = "tcp"
+      port       = "443"
+      source_ips = ["0.0.0.0/0", "::/0"]
+      destination_ips = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      direction  = "out"
+      protocol   = "udp"
+      port       = "53"
+      source_ips = ["0.0.0.0/0", "::/0"]
+      destination_ips = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      direction  = "out"
+      protocol   = "tcp"
+      port       = "53"
+      source_ips = ["0.0.0.0/0", "::/0"]
+      destination_ips = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      direction  = "out"
+      protocol   = "udp"
+      port       = "123"
+      source_ips = ["0.0.0.0/0", "::/0"]
+      destination_ips = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      direction  = "in"
+      protocol   = "udp"
+      port       = "60000-61000"
+      source_ips = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      direction  = "out"
+      protocol   = "udp"
+      port       = "60000-61000"
+      source_ips = ["0.0.0.0/0", "::/0"]
+      destination_ips = ["0.0.0.0/0", "::/0"]
+    },
   ]
 }
 

@@ -34,9 +34,9 @@ resource "hcloud_firewall" "server" {
     content {
       direction  = rule.value.direction
       protocol   = rule.value.protocol
-      port       = rule.value.port
+      port       = lookup(rule.value, "port", null)
       source_ips = rule.value.source_ips
-      destination_ips = ["${hcloud_server.server.ipv4_address}/32"]
+      destination_ips = rule.value.direction == "out" ? ["0.0.0.0/0", "::/0"] : ["${hcloud_server.server.ipv4_address}/32"]
     }
   }
 }
